@@ -2,11 +2,13 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.bowman"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.bowman"
@@ -56,4 +58,22 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // ARCore și Sceneform
+    implementation("com.google.ar:core:1.46.0")
+    implementation("com.google.ar.sceneform.ux:sceneform-ux:1.17.1")
+
+// Firebase pentru sincronizare
+//    implementation(libs.firebase.analytics)
+//    implementation(libs.firebase.database)
+//    implementation(libs.firebase.bom)
+
+    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-database")
+
+
+// Kotlin coroutines pentru lucrul cu firele de execuție
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
 }
